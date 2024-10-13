@@ -1,15 +1,8 @@
 "use client";
-import React, { useEffect, useRef, useState } from "react";
+import React, { useState } from "react";
 import styles from "./myConversations.module.css";
 import Conversation from "./Conversation";
 import ChatList from "../UserChats/chatList/ChatList";
-
-interface ISendMessagePayload{
-  senderId: string,
-  receiverId: string,
-  text: string,
-
-}
 
 const MyConversations = ({ conversations, currentUser }) => {
 
