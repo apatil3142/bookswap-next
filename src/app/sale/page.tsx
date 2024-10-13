@@ -6,7 +6,6 @@ import { useCallback, useState } from 'react';
 import FileDragAndDrop from '@/components/fileDragAndDrop/FileDragAndDrop';
 import { useRouter } from 'next/navigation';
 import { addNewBook } from '@/lib/action';
-import { revalidatePath } from 'next/cache';
 
 interface IBookDetailType {
   title: string;
@@ -59,7 +58,6 @@ const Sale = () => {
 
     const status = await addNewBook({imageFile, payload: {...payload}});
     if(status?.success){
-      revalidatePath('/');
       router.push('/');
     }
   }, [imageFile, bookDetails, router]);
