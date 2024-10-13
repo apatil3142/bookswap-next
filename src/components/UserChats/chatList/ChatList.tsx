@@ -15,11 +15,12 @@ const ChatList = ({currentConversation, userId}) => {
   const [messages, setMessages] = useState<IMessage[]>([]);
   const [newMessage, setNewMessage] = useState('');
   const [arrivalMessage, setArrivalMessage] = useState<IMessage | null>(null);
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
   const socketRef = useRef<any>(null);
-  const scrollRef = useRef<any>(null);
+  const scrollRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
-    socketRef.current = io('ws://localhost:8900');
+    socketRef.current = io(process.env.NEXT_PUBLIC_WS_URL);
     socketRef.current.on("getMessage", (data) => {
       setArrivalMessage({
         sender: data.senderId,
@@ -50,7 +51,7 @@ const ChatList = ({currentConversation, userId}) => {
   useEffect(() => {
     const fetchMessages = async () => {
       try {
-        const res = await fetch('http://localhost:3000/api/messages/'+currentConversation._id);
+        const res = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/api/messages/${currentConversation._id}`);
         const data = await res.json();
         if(data){
           setMessages(data);
@@ -77,7 +78,7 @@ const ChatList = ({currentConversation, userId}) => {
         receiverId,
         text: newMessage,
       });
-      const myMessage = await fetch('http://localhost:3000/api/messages', {
+      const myMessage = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/api/messages`, {
         method: 'post',
         body:JSON.stringify(payload),
         headers: {

@@ -11,7 +11,7 @@ const UserChats = ({name, session, bookOwnerId}) => {
   useEffect(() => {
     const getConversation = async () => {
       try {
-        const response = await fetch(`http://localhost:3000/api/conversation/${session?.user?.id}`);
+        const response = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/api/conversation/${session?.user?.id}`);
         const data = await response.json();
         if (data?.length) {
           const isConversationPresentForBookOwner = data.find(
@@ -38,7 +38,7 @@ const UserChats = ({name, session, bookOwnerId}) => {
         senderId: session?.user?.id,
         receiverId: bookOwnerId,
       }
-      const response = await fetch('http://localhost:3000/api/conversation/', {
+      const response = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/api/conversation/`, {
         method: 'post',
         body: JSON.stringify(payload), // Convert the payload to a JSON string
         headers: {

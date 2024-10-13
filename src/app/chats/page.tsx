@@ -3,7 +3,7 @@ import styles from './chats.module.css';
 import MyConversations from '@/components/conversation/MyConversations';
 
 const getConversations = async (userId) => {
-  const response = await fetch(`http://localhost:3000/api/conversation/${userId}`);
+  const response = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/api/conversation/${userId}`);
   const data = await response.json();
   return data;
 }

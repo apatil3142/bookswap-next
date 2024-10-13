@@ -4,7 +4,7 @@ import UserChats from '@/components/UserChats/UserChats';
 import { auth } from '@/lib/auth';
 
 const getBookDetails = async (bookId) => {
-  const response = await fetch(`http://localhost:3000/api/books/${bookId}`);
+  const response = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/api/books/${bookId}`);
   const data = await response.json();
   return data;
 }

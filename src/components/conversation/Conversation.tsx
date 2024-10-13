@@ -12,7 +12,7 @@ const Conversation = ({isSelected,conversation, currentUserId, conversessionClic
     const getUserDetails = async () => {
       const friendId = conversation.members.find(m => m !== currentUserId)
       try {
-        const response = await fetch('http://localhost:3000/api/users/'+friendId);
+        const response = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/api/users/${friendId}`);
         const data = await response.json();
         if(data){
           setUser(data)

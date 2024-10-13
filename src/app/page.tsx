@@ -3,7 +3,7 @@ import styles from "./page.module.css";
 import { IBook } from "@/lib/interface";
 
 const getBooks = async () => {
-  const response = await fetch('http://localhost:3000/api/books', {cache: 'no-cache'});
+  const response = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/api/books`, {cache: 'no-cache'});
   const data = await response.json();
   return data;
 };
