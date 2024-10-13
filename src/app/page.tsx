@@ -10,6 +10,7 @@ const getBooks = async () => {
 
 export default async function Home() {
   const booksList: IBook[] = await getBooks();
+  
   return (
     <div className={styles.container}>
       {booksList?.map(book => (
