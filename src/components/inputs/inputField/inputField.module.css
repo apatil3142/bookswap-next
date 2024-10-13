@@ -1,0 +1,31 @@
+.container{
+  display: flex;
+  flex-direction: column;
+  max-width: 500px;
+  gap: 6px;
+  width: 100%;
+  /* Chrome, Safari, Edge, Opera */
+}
+
+.inputField::-webkit-outer-spin-button,
+.inputField::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+.inputField[type=number] {
+  -moz-appearance: textfield;
+}
+
+.inputField{
+  outline: none;
+  border: 1px solid #4e4e4e;
+  border-radius: 6px;
+  padding: 10px;
+  font-size: 16px;
+}
+
+.label{
+  font-size: 1.2rem;
+  color: var(--bg);
+}

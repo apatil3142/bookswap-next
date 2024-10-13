@@ -1,0 +1,44 @@
+.container{
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  height: 280px;
+  background-color: var(--bgSoft);
+  overflow: hidden;
+}
+
+.container:hover{
+  transform: scale(1.04);
+}
+
+.imgContainer{
+  position: relative;
+  width: 100%;
+  height: 70%;
+}
+
+.bookImage{
+  aspect-ratio: 16 / 9;
+  object-fit: cover;
+}
+
+.bookInfoContainer{
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  padding: 0 10px;
+  margin-bottom: 10px;
+}
+
+.title{
+  font-weight: 700;
+  font-size: 18px;
+}
+
+.bookInfo{
+  font-weight: 500;
+  color: var(--text-soft);
+}

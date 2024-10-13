@@ -1,0 +1,18 @@
+.form{
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  gap: 20px;
+}
+
+.text{
+  color: var(--bg);
+}
+
+.registerButton{
+  color: #295e9b;
+}
+
+.errorText{
+  color: #c71c1c;
+}

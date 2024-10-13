@@ -1,0 +1,65 @@
+.container {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.bookDetailsContainer{
+  overflow: hidden;
+  display: flex;
+  background-color: var(--bgSoft);
+  border-radius: 10px;
+  width: 80%;
+  height: 700px;
+}
+
+.bookInfo{
+  flex: 1;
+}
+
+.bookImageContainer{
+  width: 100%;
+  height: 50%;
+  position: relative;
+}
+
+.bookInformation{
+  display: grid;
+  width: 100%;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 20px;
+  column-gap: 30px;
+  padding: 10px;
+  row-gap: 50px;
+}
+
+.bookImage{
+  aspect-ratio: 16 / 9;
+}
+
+.infoDiv{
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.subTitle{
+  font-size: 14px;
+  font-weight: 500;
+  color: var(--textSoft);
+}
+
+.title{
+  font-size: 18px;
+  font-weight: 600;
+}
+
+.chatInfo{
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  height: 100%;
+}
