@@ -4,6 +4,7 @@ import { Book, User } from "./models";
 import { connectToDb } from "./db";
 import { auth, signIn, signOut } from "./auth";
 import bcrypt from "bcryptjs";
+import { revalidatePath } from "next/cache";
 
 export const handleLogout = async () => {
   await signOut();
@@ -73,6 +74,7 @@ export const addNewBook = async ({imageFile, payload}: IAddNewBook) => {
     });
   const responseData = await response.json();
   const result = await uploadBookDetails({...payload, image: responseData.url, cloudinaryId: responseData.public_id})
+  revalidatePath('/');
   return result;
     
   } catch (error) {
